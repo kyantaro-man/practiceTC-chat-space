@@ -43,13 +43,15 @@
       height: 65px;
       color: #ffffff;
       font-weight: bold;
-      .group-name {
+      &__group-name {
         font-size: 15px;
         padding: 20px 20px 5px 20px;
+        color: #ffffff;
       }
-      .group-message {
+      &__group-message {
         font-size: 11px;
         padding:0px 20px 40px 20px;
+        color: #ffffff;
       }
     }
   }
