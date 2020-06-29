@@ -36,7 +36,7 @@ $(function(){
   }
 
 
-  $('#new_user').on('submit', function(e){
+  $('.Form').on('submit', function(e){
     e.preventDefault( );
     let formData = new FormData(this);
     let url = $(this).attr('action');
@@ -48,15 +48,15 @@ $(function(){
       processData: false,
       contentType: false
     })
-  })
-  .done(function(data){
-    let html =buildHTML(data);
-    $('.Chat-main__message-list').append(html);
-    $('.Chat-main__message-list').animate({ scrollTop: $('.Chat-main__message-list')[0].scrollHeight});
-    $('form')[0].reset();
-    $('Chat-main__message-form__submit-btn').prop("disabled", false);
-  })
-  .fail(function() {
-    alert("メッセージ送信に失敗しました");
+    .done(function(data){
+      let html =buildHTML(data);
+      $('.Chat-main__message-list').append(html);
+      $('.Chat-main__message-list').animate({ scrollTop: $('.Chat-main__message-list')[0].scrollHeight});
+      $('form')[0].reset();
+      $('Chat-main__message-form__submit-btn').prop("disabled", false);
+    })
+    .fail(function() {
+      alert("メッセージ送信に失敗しました");
+    });
   });
 });
