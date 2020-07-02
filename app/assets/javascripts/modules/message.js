@@ -1,8 +1,8 @@
-$(function(){
+$(function() {
   function buildHTML(message){
     if ( message.image ) {
       let html =
-        `<div class="Chat-main__message-list">
+        `<div class="MessageBox" data-message-id=${message.id}>
           <div class="Chat-main__message-list__message-top">
             <div class="Chat-main__message-list__message-top__message-sender">
               ${message.user_name}
@@ -10,25 +10,27 @@ $(function(){
             <div class="Chat-main__message-list__message-top__message-time">
               ${message.created_at}
             </div>
-            <div class="Chat-main__message-list__message-bottom">
-              <p class="Message__content">
-                ${message.content}
-              </p>
-              <img class="Message__image" src="${message.image}">
-            </div>
+          </div>
+          <div   class="Chat-main__message-list__message-bottom">
+            <p class="Message__content">
+              ${message.content}
+            </p>
+            <img class="Message__image" src="${message.image}">
           </div>
         </div>`
       return html;
     } else {
       let html =
-        `<div class="Chat-main__message-list__message-top">
-          <div class="Chat-main__message-list__message-top__message-sender">
-            ${message.user_name}
+        `<div class="MessageBox" data-message-id=${message.id}>
+          <div class="Chat-main__message-list__message-top">
+            <div class="Chat-main__message-list__message-top__message-sender">
+              ${message.user_name}
+            </div>
+            <div class="Chat-main__message-list__message-top__message-time">
+              ${message.created_at}
+            </div>
           </div>
-          <div class="Chat-main__message-list__message-top__message-time">
-            ${message.created_at}
-          </div>
-          <div class="Chat-main__message-list__message-bottom">
+          <div   class="Chat-main__message-list__message-bottom">
             <p class="Message__content">
               ${message.content}
             </p>
@@ -60,6 +62,7 @@ $(function(){
     })
     .fail(function() {
       alert("メッセージ送信に失敗しました");
+      $('.Chat-main__message-form__submit-btn').prop("disabled", false);
     });
   });
 });
