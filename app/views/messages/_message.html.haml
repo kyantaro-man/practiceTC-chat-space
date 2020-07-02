@@ -3,8 +3,8 @@
     = message.user.name
   .Chat-main__message-list__message-top__message-time
     = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
-  .Chat-main__message-list__message-bottom
-    - if message.content.present?
-      %p.Message__content
-        = message.content
-    = image_tag message.image.url, class: 'Message__image' if message.image.present?
+.Chat-main__message-list__message-bottom
+  - if message.content.present?
+    %p.Message__content
+      = message.content
+  = image_tag message.image.url, class: 'Message__image' if message.image.present?
