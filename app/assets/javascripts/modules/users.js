@@ -1,7 +1,7 @@
 $(function() {
   function addUser(user) {
     let html = `
-                <div class="ChatMemeber clearfix">
+                <div class="ChatMember">
                   <p class="ChatMember__name">${user.name}</p>
                   <div class="ChatMember__add ChatMember__button" data-user-id="${user.id}" data-user-name="${user.name}">追加</div>
                 </div>
@@ -20,7 +20,7 @@ $(function() {
 
   function addMember(name, id) {
     let html = `
-                <div class="ChatMemeber">
+                <div class="ChatMember">
                   <p class="ChatMember__name">${name}</p>
                   <input name="group[user_ids][]" type="hidden" value="${id}" />
                   <div class="ChatMember__remove ChatMember__button">削除</div>
@@ -56,7 +56,7 @@ $(function() {
   $("#UserSearchResult").on("click", ".ChatMember__add", function() {
     const userName = $(this).attr("data-user-name");
     const userId = $(this).attr("data-user-id");
-    $(this).parent().remove;
+    $(this).parent().remove();
     addMember(userName, userId);
   });
   $(".ChatMembers").on("click", ".ChatMember__remove", function() {
