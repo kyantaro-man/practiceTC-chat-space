@@ -10,11 +10,11 @@
       Edit
   .Chat-main__message-list
     = render @messages
-  .Chat-main__message-form
-    = form_with model: [@group, @message], html: {class: "Chat-main__message-form", id: "form"}, local: true do |f|
-      .Chat-main__message-form__input-field
-        = f.text_field :content, class: 'input-text', placeholder: 'type a message'
-        = f.label :image, class: 'input-image' do
-          = icon('far', 'image', class:"icon-image")
+  .Chat-main__message-field
+    = form_with model: [@group, @message], html: {class: "message-form", id: "form"}, local: true do |f|
+      .message-form__input-field
+        = f.text_field :content, class: 'message-form__input-text', placeholder: 'type a message'
+        = f.label :image, class: 'message-form__input-image' do
+          = icon('far', 'image', class: "icon-image")
           = f.file_field :image, class: 'hidden'
-      = f.submit 'Send', class: 'Chat-main__message-form__submit-btn'
+      = f.submit 'Send', class: 'message-form__submit-btn'
